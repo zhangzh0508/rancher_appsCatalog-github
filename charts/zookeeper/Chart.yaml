@@ -6,7 +6,6 @@ appversion: 3.4.10
 maintainers:
 - name : zzh
   email : zhangzh3@asp.citic.com
-icon: ./zookeeper.png
 sources:
 - https://github.com/31z4/zookeeper-docker
 - https://hub.docker.com/_/zookeeper
