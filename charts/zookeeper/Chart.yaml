@@ -3,6 +3,7 @@ description: Zookeeper
 name: Zookeeper
 version: 3.4.10
 appversion: 3.4.10
+icon: https://zookeeper.apache.org/images/zookeeper_small.gif
 maintainers:
 - name : zzh
   email : zhangzh3@asp.citic.com
