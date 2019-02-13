@@ -10,8 +10,8 @@ securityContext:
   runAsUser: 1000
 
 image:
-  repository: gcr.io/google_samples/k8szk
-  tag: v3
+  repository: 10.14.125.131:5000/k8s.gcr.io/kubernetes-zookeeper
+  tag: 3.4.10
   pullPolicy: Always
 #  pullPolicy: IfNotPresent
 
