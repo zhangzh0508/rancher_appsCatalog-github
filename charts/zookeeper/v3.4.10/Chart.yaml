@@ -6,7 +6,7 @@ appversion: 3.4.10
 maintainers:
 - name : zzh
   email : zhangzh3@asp.citic.com
-icon: https://github.com/zhangzh0508/rancher_appsCatalog-github/blob/master/charts/zookeeper/v3.4.10/zookeeper.png
+icon: https://zookeeper.apache.org/images/zookeeper_small.gif
 sources:
 - https://github.com/31z4/zookeeper-docker
 - https://hub.docker.com/_/zookeeper
