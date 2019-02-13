@@ -1,5 +1,0 @@
-## ELK
-
-* elasticsearch
-* logstash
-* kibana
