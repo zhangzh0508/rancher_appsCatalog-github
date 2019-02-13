@@ -1,12 +1,13 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ template "zookeeper.fullname" . }}
+  namespace: {{ template "zookeeper.namespace" . }}
   labels:
     app: {{ template "zookeeper.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    ##release: {{ .Release.Name }}
+    ##heritage: {{ .Release.Service }}
 spec:
   podManagementPolicy: Parallel
   replicas: {{ .Values.replicaCount }}
@@ -21,7 +22,7 @@ spec:
     metadata:
       labels:
         app: {{ template "zookeeper.name" . }}
-        release: {{ .Release.Name }}
+#        release: {{ .Release.Name }}
     spec:
       securityContext:
 {{ toYaml .Values.securityContext | indent 8 }}
@@ -30,9 +31,16 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
-        - bash
+        - sh
         - -c
-        - ZOOKEEPER_SERVER_ID=$((${HOSTNAME##*-}+1)) && /etc/confluent/docker/run
+        - "start-zookeeper \
+          --data_dir=/var/lib/zookeeper/data \
+          --data_log_dir=/var/lib/zookeeper/data/log \
+          --conf_dir=/opt/zookeeper/conf \
+          --log_level=INFO"
+#        - bash
+#        - -c
+#        - ZOOKEEPER_SERVER_ID=$((${HOSTNAME##*-}+1)) && /etc/confluent/docker/run
         env:
         - name: ZOOKEEPER_TICK_TIME
           valueFrom:

@@ -10,9 +10,10 @@ securityContext:
   runAsUser: 1000
 
 image:
-  repository: confluentinc/cp-zookeeper
-  tag: 4.1.1
-  pullPolicy: IfNotPresent
+  repository: 10.14.125.131:5000/k8s.gcr.io/kubernetes-zookeeper
+  tag: 3.4.10
+  pullPolicy: Always
+#  pullPolicy: IfNotPresent
 
 service:
   name: client
