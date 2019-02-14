@@ -26,7 +26,7 @@ questions:
   label: Clustered Topology
   type: boolean
   show_subquestion_if: true
-  group: "Redis Slave Settings"
+  group: "zookeeper Node Settings"
   subquestions:
   - variable: cluster.nodeCount
     default: "3"
