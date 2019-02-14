@@ -2,3 +2,34 @@ categories:
 - arteryX
 - service-registry
 questions:
+- variable: defaultImage
+  default: "true"
+  description: "Use default Docker images"
+  label: Use Default Images
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
+  subquestions:
+  - variable: image.repository
+    default: "10.14.125.131:5000/k8s.gcr.io/kubernetes-zookeeper"
+    description: "zookeeper image name"
+    type: string
+    label: zookeeper Image Name
+  - variable: image.tag
+    default: "3.4.10"
+    description: "zookeeper image tag"
+    type: string
+    label: zookeeper Image Tag
+- variable: cluster.enabled
+  default: "true"
+  description: "Use leader-follower topology"
+  label: Clustered Topology
+  type: boolean
+  show_subquestion_if: true
+  group: "Redis Slave Settings"
+  subquestions:
+  - variable: cluster.nodeCount
+    default: "3"
+    description: "Number of Cluster-nodes"
+    type: string
+    label: Number of Cluster-nodes
