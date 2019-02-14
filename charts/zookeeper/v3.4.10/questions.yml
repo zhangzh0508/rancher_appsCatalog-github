@@ -28,7 +28,7 @@ questions:
   show_subquestion_if: true
   group: "zookeeper Node Settings"
   subquestions:
-  - variable: cluster.nodeCount
+  - variable: replicaCount
     default: "3"
     description: "Number of Cluster-nodes"
     type: string
